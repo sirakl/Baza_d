@@ -14,12 +14,12 @@ public class App {
         PersonStore store = new MemoryPersonStore();
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Выберите команду:");
-            System.out.println("-addTeacher: добавить учителя");
-            System.out.println("-addStudent: добавить ученика");
-            System.out.println("-displayList: показать список");
-            System.out.println("-removeRecord: удалить запись");
-            System.out.println("-quit: завершить программу");
+            System.out.println("Виберіть команду:");
+            System.out.println("-addTeacher: додати вчителя");
+            System.out.println("-addStudent: додати учня");
+            System.out.println("-displayList: показати список");
+            System.out.println("-removeRecord: видалити запис");
+            System.out.println("-quit: завершити программу");
             String command = scanner.nextLine();
             switch (command) {
                 case "addTeacher":
@@ -45,14 +45,19 @@ break;
                 System.out.println("Список всіх людей:");
                 List<Person> people = store.getAll();
                 for (int i = 0; i < people.size(); i++) {
-                    System.out.println((i + 1) + ". " + people.get(i).toString());
+                    System.out.println((i+1) + ". " + people.get(i).toString());
                 }
 break;
+                case "removeRecord":
+                    System.out.println("Введіть ID запису для видалення:");
+                    int idToRemove = scanner.nextInt();
+                    store.removeRecord(idToRemove);
+                    break;
                 case "quit":
                     System.out.println("Программа завершена.");
                     return;
                 default:
-                    System.out.println("Неверная команда.");
+                    System.out.println("Неправильна команда.");
             }
         }
     }

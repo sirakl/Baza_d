@@ -26,4 +26,17 @@ public class MemoryPersonStore implements PersonStore {
     public List<Person> getAll() {
         return people;
     }
+    @Override
+    public void removeRecord(int id) {
+        for (int i = 0; i < people.size(); i++) {
+            if (people.get(i).id == id) {
+                people.remove(i);
+                System.out.println("Запис з ID " + id + " видалено.");
+                return;
+            }
+        }
+        System.out.println("Неможливо знайти запис з ID " + id);
+    }
 }
+
+

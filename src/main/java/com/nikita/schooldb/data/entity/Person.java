@@ -12,7 +12,7 @@ public abstract class Person {
     }
 
     @Override
-    public String toString() {
-        return "Ім'я: " + firstName + ", Прізвище: " + lastName;
+    public String toString() {return "Id: " +id +", Ім'я: " + firstName + ", Прізвище: " + lastName;
     }
+
 }
